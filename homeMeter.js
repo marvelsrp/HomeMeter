@@ -12,7 +12,7 @@ if (!fs.existsSync('wiring.js')) {
 var wiring = require('./wiring.js');
 
 // Available runtime parameters configuration
-GLOBAL.validParams = require('./parameters.js').params;
+global.validParams = require('./parameters.js').params;
 
 // This one displays configuration help
 String.prototype.repeat = function(num)  {
@@ -116,7 +116,7 @@ global.dd = dd;
 //
 // Applying defaults
 //
-for (var name in GLOBAL.validParams) {
+for (var name in global.validParams) {
   if (validParams[name]['default'] && !c.hasOwnProperty(name)) {
     c[name] = validParams[name]['default'];
     defaults[name] = true;
@@ -127,7 +127,7 @@ for (var name in GLOBAL.validParams) {
 // Display help screen
 //
 if (c.help) {
-  require('./lib/showHelp.js').help(GLOBAL.validParams);
+  require('./lib/showHelp.js').help(global.validParams);
   process.exit(0);
 }
 
