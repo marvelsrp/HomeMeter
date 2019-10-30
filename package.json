@@ -1,19 +1,24 @@
 {
-  "name": "smart-water-counter",
+  "name": "node-impulse-counter",
   "version": "0.0.1",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "start": "./node_modules/.bin/pm2 startOrRestart ecosystem.json --env development",
+    "monit": "./node_modules/.bin/pm2 monit",
+    "kill": "./node_modules/.bin/pm2 kill",
+    "logs": "./node_modules/.bin/pm2 logs homeMeter",
+    "format": "prettier --trailing-comma es5 --single-quote --write 'src/**/*.js'",
+    "precommit": "lint-staged"
+  },
   "dependencies": {
-    "body-parser": "1.18.2",
-    "cookie-parser": "1.4.3",
-    "debug": "3.1.0",
-    "express": "4.16.3",
-    "jade": "1.11.0",
-    "minimist": "1.2.0",
-    "morgan": "1.9.0",
-    "request": "2.85.0",
-    "rpi-gpio": "0.9.1",
-    "serve-favicon": "2.5.0",
-    "winston": "2.4.2"
+    "js": "^0.1.0",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-json": "^2.0.2",
+    "koa-log": "^2.1.0",
+    "koa-router": "^7.4.0",
+    "lint-staged": "^9.4.2",
+    "pm2": "^4.1.2",
+    "rpi-gpio": "^2.1.5"
   }
 }

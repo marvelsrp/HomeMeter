@@ -5,3 +5,4 @@ wiring.js
 dump.json
 npm-debug.log
 /node_modules
+.logs
